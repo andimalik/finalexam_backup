@@ -6,14 +6,18 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@Entity
+@Table(name = "customer")
 public class Customer {
 	@Id
 	@GeneratedValue
@@ -36,11 +40,11 @@ public class Customer {
 	@Column(name = "id_number", nullable = false, length = 20)
 	private String idNumber;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "customer_id", nullable = false)
 	private List<Address> addresses = new ArrayList<Address>();
 
-	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
 	private List<Account> accounts = new ArrayList<Account>();
 
 	public Integer getId() {
