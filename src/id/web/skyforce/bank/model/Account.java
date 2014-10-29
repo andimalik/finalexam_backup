@@ -16,7 +16,6 @@ import javax.persistence.Table;
 public class Account {
 	@Id
 	@GeneratedValue
-	@Column(name = "id", nullable = false)
 	private Integer id;
 
 	@ManyToOne(fetch = FetchType.LAZY)

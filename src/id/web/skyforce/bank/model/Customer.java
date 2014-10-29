@@ -21,7 +21,6 @@ import javax.persistence.TemporalType;
 public class Customer {
 	@Id
 	@GeneratedValue
-	@Column(name = "id", nullable = false)
 	private Integer id;
 
 	@Column(name = "first_name", nullable = false, length = 50)

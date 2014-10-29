@@ -11,7 +11,6 @@ import javax.persistence.Table;
 public class Address {
 	@Id
 	@GeneratedValue
-	@Column(name = "id", nullable = false)
 	private Integer id;
 
 	@Column(name = "street", length = 50, nullable = false)
